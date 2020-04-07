@@ -1,5 +1,4 @@
 from webargs.flaskparser import parser
-from flask import request
 
 
 def parse_args(read_schema):
@@ -13,12 +12,11 @@ def parse_args(read_schema):
 
         # all good with incoming data, so continue
         filters = {}
-        pfields = []
         sort = {}
         pagination = {}  # per_page, page number
         operator = ''
         if not input_data:
-            return filters, pfields, sort, pagination, operator
+            return filters, sort, pagination, operator
 
         # there are filter arguments, so parse them, and separate into
         # filters, sort, pagination
